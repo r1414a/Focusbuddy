@@ -1,0 +1,5 @@
+focusbuddyfrontend/.env
+focusbuddyfrontend/node_modules
+
+focusbuddybackend/.env
+focusbuddybackend/node_modules
