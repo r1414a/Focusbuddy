@@ -33,7 +33,6 @@ function Login() {
       const data = await response.json();
       console.log(data);
       if(response.ok){
-        setLoading(false);
         navigate('/dashboard');
       }else if(response.status === 400){
         setIsError(true);
@@ -44,6 +43,8 @@ function Login() {
     }catch(err){
       console.log(err);
       throw new Error('Error while login.')
+    }finally{
+      setLoading(false);
     }
   }
 
