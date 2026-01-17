@@ -1,5 +1,5 @@
-focusbuddyfrontend/.env
-focusbuddyfrontend/node_modules
+frontend/.env
+frontend/node_modules
 
-focusbuddybackend/.env
-focusbuddybackend/node_modules
+backend/.env
+backend/node_modules

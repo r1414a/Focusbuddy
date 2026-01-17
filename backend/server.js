@@ -63,6 +63,7 @@ app.use(express.urlencoded({extended: true}));
 
 
 //express session configurations
+app.set('trust proxy', 1);
 app.use(
     session({
         //to generate session ID
@@ -75,16 +76,15 @@ app.use(
         cookie: {
             maxAge: 7 * 24 * 60 * 60 * 1000,
             // maxAge: 60 * 60 * 1000
-            secure: false,
-            domain: "localhost",
-            // domain: ".focusbuddy.in",
-            sameSite: "lax",
+            secure: true,
+            httpOnly: true,
+            sameSite: "none",
         },
         store: MongoStore.create({
             client: mongoose.connection.getClient(),
             collectionName: 'userSessions',
             ttl: 7 * 24 * 60 * 60, // 1 week in seconds
-            autoRemove: 'disable', // Default mode to use MongoDB's TTL index
+            autoRemove: 'native', // Default mode to use MongoDB's TTL index
         })
     })
 )
